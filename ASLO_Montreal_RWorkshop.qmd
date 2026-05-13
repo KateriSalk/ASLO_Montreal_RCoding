@@ -1,6 +1,7 @@
 ---
 title: "ASLO Montreal: R Workshop"
 author: "Kateri Salk"
+date: "2026-05-13"
 format: html
 editor: visual
 editor_options: 
@@ -25,7 +26,7 @@ For more information, see these links:
 
 <https://www.iisd.org/ela/visit-the-lakes/our-lakes/>
 
-<https://github.com/IISD-ELA/info-sheets/blob/main/chemistry/chemistry.md>
+<https://github.com/IISD-ELA/info-sheets/tree/main>
 
 ## Introduction to our Coding Setup
 
@@ -187,7 +188,7 @@ Data processing functions:
 
 -   `mutate`: adds a column to the dataset based on a conditional statement.
 
--   **Pipe operator:** `%>%` or XXXXX; indicates the linking of a series of functions in sequence within a single code chunk. Add this to the end of a line of code so that R will continue running the next line.
+-   **Pipe operator:** `%>%` or `|>`; indicates the linking of a series of functions in sequence within a single code chunk. Add this to the end of a line of code so that R will continue running the next line.
 
 Take notes in the comments as we move along with the data processing!
 
@@ -248,8 +249,8 @@ eladata_surface <- eladata %>% #
          characteristic_name, characteristic_name_long, 
          result_value, result_unit,
          Year, Month, Week) %>% # 
-  filter(characteristic_name %in% c("TDP", "PARTP", "TDN", "PARTN", "CHLA",
-                                    "DOC", "PH", "COND")) %>%
+  filter(characteristic_name %in% c("TDP", "PARTP", "TDN", "PARTN", 
+                                    "CHLA", "DOC", "PH", "COND")) %>%
   filter(activity_depth_height_unit == "epi" | activity_depth_height_unit == "surface grab") %>%
   filter(Month %in% c(5:10)) %>%
   mutate(Parameter = case_when(characteristic_name == "TDP" ~ "TDP_ugL",
